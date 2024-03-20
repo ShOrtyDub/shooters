@@ -1,8 +1,10 @@
+import Shooters from "./components/Shooters.jsx";
+
 function App() {
 
-  return "Hello World"
-
-
+    return (
+       <Shooters/>
+    )
 }
 
 export default App
