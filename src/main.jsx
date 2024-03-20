@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Shooters from "./components/Shooters.jsx";
+import Player from "./components/Player.jsx";
 
 const router = createBrowserRouter([
     {
@@ -10,8 +11,8 @@ const router = createBrowserRouter([
         element: <Shooters/>
     },
     {
-        path: "/shooter",
-        element: <div>Page Shooter</div>
+        path: "/player/:id",
+        element: <Player/>
     },
     {
         path: "/team",

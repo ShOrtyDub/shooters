@@ -27,18 +27,25 @@ export default function Shooters() {
         }
     };
 
+    const handleSearchChange = (event) => {
+        setSearch(event.target.value);
+    };
+
+    // TODO améliorer "no player found"
     const renderPlayers = () => {
         if (!players.length) {
             return <div>No player found</div>;
         }
         return players.map((player) => (
-            <div key={player.id}>{player.first_name} {player.last_name}</div>
+            <Link to={`/player/${player.id}`}
+                  key={player.id}
+            >
+                <div key={player.id}>
+                    {player.first_name} {player.last_name}
+                </div>
+            </Link>
         ));
     }
-
-    const handleSearchChange = (event) => {
-        setSearch(event.target.value);
-    };
 
     useEffect(() => {
         if (search) {
@@ -58,7 +65,6 @@ export default function Shooters() {
             <div>
                 {renderPlayers()}
             </div>
-            <Link to="/shooter">test</Link>
         </Fragment>
     )
 }
