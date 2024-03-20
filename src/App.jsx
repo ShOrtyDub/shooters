@@ -1,9 +1,13 @@
 import Shooters from "./components/Shooters.jsx";
+import {Fragment} from "react";
+
 
 function App() {
 
     return (
-       <Shooters/>
+        <Fragment>
+            <Shooters/>
+        </Fragment>
     )
 }
 

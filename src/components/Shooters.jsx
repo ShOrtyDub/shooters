@@ -1,7 +1,8 @@
 import {Fragment, useEffect, useState} from "react";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
-export default function Shooters(){
+export default function Shooters() {
     const [players, setPlayers] = useState()
 
     const fetchPlayers = async () => {
@@ -22,10 +23,10 @@ export default function Shooters(){
     };
 
     const renderPlayers = () => {
-        if (!players){
+        if (!players) {
             return null;
         }
-        return players.map((player)=> (
+        return players.map((player) => (
             <div key={player.id}>{player.first_name}</div>
         ));
     }
@@ -36,7 +37,10 @@ export default function Shooters(){
 
     return (
         <Fragment>
-            {renderPlayers()}
+            <div>
+                {renderPlayers()}
+            </div>
+            <Link to="/shooter">test</Link>
         </Fragment>
     )
 }
