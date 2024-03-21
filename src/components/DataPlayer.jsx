@@ -1,5 +1,6 @@
-export default function DataPlayer({playerData}){
-// TODO rendre la "team" cliquable -> aller à la fiche de la team
+import {Link} from "react-router-dom";
+
+export default function DataPlayer({playerData}) {
     return (
         <>
             <div>
@@ -13,7 +14,9 @@ export default function DataPlayer({playerData}){
                 <p>draft year : {playerData.draft_year}</p>
                 <p>draft round : {playerData.draft_round}</p>
                 <p>draft number : {playerData.draft_number}</p>
-                <p>team : {playerData.team.full_name}</p>
+                <Link to={`/team/${playerData.team.id}`}>
+                    <p>{playerData.team.full_name}</p>
+                </Link>
                 <p>city : {playerData.team.city}</p>
             </div>
         </>

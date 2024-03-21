@@ -20,7 +20,7 @@ export default function Player() {
             setPlayerData(response.data.data);
             console.log(response.data);
         } catch (error) {
-            console.error("fetchPlayerData() n'a pas fonctionné.");
+            console.error('Error fetching player data:', error);
         }
     };
 

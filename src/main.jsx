@@ -4,6 +4,7 @@ import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Shooters from "./components/Shooters.jsx";
 import Player from "./components/Player.jsx";
+import Team from "./components/Team.jsx";
 
 const router = createBrowserRouter([
     {
@@ -15,8 +16,8 @@ const router = createBrowserRouter([
         element: <Player/>
     },
     {
-        path: "/team",
-        element: <div>Page Team</div>
+        path: "/team/:id",
+        element: <Team/>
     },
 ]);
 

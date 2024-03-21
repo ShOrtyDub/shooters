@@ -15,7 +15,7 @@ export default function Shooters() {
                     'Authorization': '8b94bf84-fe70-4619-8d50-e307653da5fc'
                 },
                 params: {
-                    last_name: name,
+                    search: name,
                     per_page: 100
                 },
             }
