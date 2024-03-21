@@ -1,6 +1,7 @@
-import {Fragment, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
+import DataPlayer from "./DataPlayer.jsx";
 
 export default function Player() {
     const {id} = useParams();
@@ -17,29 +18,32 @@ export default function Player() {
             };
             const response = await axios(options);
             setPlayerData(response.data.data);
-            console.log(response.data.data);
+            console.log(response.data);
         } catch (error) {
             console.error("fetchPlayerData() n'a pas fonctionné.");
         }
     };
 
+    const renderPlayer = () => {
+        return (
+            <DataPlayer playerData={playerData}/>
+        )
+    }
+
     useEffect(() => {
         fetchPlayerData()
     }, []);
 
-    // TODO afficher les données nécessaires du joueur.
+    // TODO afficher une roue de chargement.
     return (
-        <Fragment>
-            <h1>{playerData.first_name} {playerData.last_name}</h1>
-            number
-            height
-            weight
-            team
-            country
-            college
-            draft year
-            draft round
-            draft number
-        </Fragment>
+        <>
+            {playerData ? (
+                renderPlayer()
+            ) : (
+                <p>searching...</p>
+            )}
+
+            <Link to="/">Home</Link>
+        </>
     )
 }

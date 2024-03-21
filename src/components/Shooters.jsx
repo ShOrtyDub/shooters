@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
@@ -21,7 +21,6 @@ export default function Shooters() {
             }
             const response = await axios(options);
             setPlayers(response.data.data);
-            console.log(response);
         } catch (error) {
             console.error('Error fetching players:', error);
         }
@@ -54,7 +53,7 @@ export default function Shooters() {
     }, [search]);
 
     return (
-        <Fragment>
+        <>
             <div>
                 <input type="text"
                        placeholder="Search a player by name"
@@ -65,6 +64,6 @@ export default function Shooters() {
             <div>
                 {renderPlayers()}
             </div>
-        </Fragment>
+        </>
     )
 }
