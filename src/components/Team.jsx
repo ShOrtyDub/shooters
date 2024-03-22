@@ -17,7 +17,7 @@ export default function Team() {
             };
             const response = await axios(options);
             setTeamData(response.data.data);
-            console.log(response.data.data);
+            // console.log(response.data.data);
         } catch (error) {
             console.error('Error fetching team data:', error);
         }
