@@ -61,6 +61,7 @@ export default function Shooters() {
         <>
             <div className={`search ${isActive ? "active" : ""}`}>
                 <Title/>
+
                 <input
                     type="text"
                     placeholder="Player's name..."
@@ -71,7 +72,8 @@ export default function Shooters() {
 
             <div className="render-players">
                 {players ?
-                    (renderPlayers()) :
+                    (renderPlayers())
+                    :
                     (<div>
                         <ReactLoading
                             type="spin"

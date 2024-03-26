@@ -28,22 +28,24 @@ body {
 
 a {
     color: black;
+}
+
+a, .link-button {
     text-decoration: none;
 }
 
 .link-button {
     padding: 8px 16px;
-    background-color: white; /* Couleur de fond */
-    color: black; /* Couleur du texte */
-    text-decoration: none; /* Supprime le soulignement */
-    border: solid 1px grey; /* Supprime les bordures */
-    border-radius: 4px; /* Arrondi des coins */
-    cursor: pointer; /* Curseur */
-    transition: 1s ease;
+    background-color: white;
+    color: black;
+    border: solid 1px grey;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 1s ease;
 }
 
 .link-button:hover {
-    background-color: #eed7b3; /* Couleur de fond au survol */
+    background-color: #eed7b3;
 }
 
 .center-link {
@@ -109,6 +111,7 @@ Render players
     padding-left: 10vw;
     padding-right: 10vw;
     margin-bottom: 3vh;
+    transition: all 1s ease;
 }
 
 .player {
@@ -117,6 +120,11 @@ Render players
     text-align: center;
     align-content: center;
     font-size: 1.6rem;
+    transition: all 1.5s ease;
+}
+
+.player:hover{
+    background-color: #eed7b3;
 }
 
 .player, .player-card, .team-card {

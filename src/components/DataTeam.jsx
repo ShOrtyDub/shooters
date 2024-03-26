@@ -45,9 +45,6 @@ export default function DataTeam({teamData}) {
     };
 
     const renderAllPlayers = () => {
-        if (!teamPlayers.length) {
-            return <div>Searching...</div>
-        }
         return teamPlayers.map(player => (
             <>
                 <Link
@@ -78,10 +75,10 @@ export default function DataTeam({teamData}) {
                     />
                 </div>
                 <h1>{teamData.full_name}</h1>
-                <p>city : <span>{teamData.city}</span></p>
-                <p>abbreviation : <span>{teamData.abbreviation}</span></p>
-                <p>conference : <span>{teamData.conference}</span></p>
-                <p>division : <span>{teamData.division}</span></p>
+                <p>City : <span>{teamData.city ? teamData.city : "N/A"}</span></p>
+                <p>Abbreviation : <span>{teamData.abbreviation ? teamData.abbreviation : "N/A"}</span></p>
+                <p>Conference : <span>{teamData.conference ? teamData.conference : "N/A"}</span></p>
+                <p>Division : <span>{teamData.division ? teamData.division : "N/A"}</span></p>
             </div>
 
             {loading ?
@@ -91,7 +88,8 @@ export default function DataTeam({teamData}) {
                         color="#fafafa"
                         height={50}
                         width={50}/>
-                </div>) :
+                </div>)
+                :
                 (<div className="render-players">
                     {renderAllPlayers()}
                 </div>)

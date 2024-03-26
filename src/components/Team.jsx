@@ -37,17 +37,18 @@ export default function Team() {
 
     return (
         <>
-                {teamData ?
-                    (renderTeam()) :
-                    (<div className="spin-loading">
-                        <ReactLoading
-                            type="spin"
-                            color="#fafafa"
-                            height={50}
-                            width={50}
-                        />
-                    </div>)
-                }
+            {teamData ?
+                (renderTeam())
+                :
+                (<div className="spin-loading">
+                    <ReactLoading
+                        type="spin"
+                        color="#fafafa"
+                        height={50}
+                        width={50}
+                    />
+                </div>)
+            }
 
             <div className="center-link">
                 <Link to="/" className="link-button">Home</Link>

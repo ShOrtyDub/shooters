@@ -40,7 +40,8 @@ export default function Player() {
         <>
             <div className="search">
                 {playerData ?
-                    (renderPlayer()) :
+                    (renderPlayer())
+                    :
                     (<div>
                         <ReactLoading
                             type="spin"
