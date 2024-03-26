@@ -1,10 +1,14 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import Title from "./Title.jsx";
+import Footer from "./Footer.jsx";
+import ReactLoading from 'react-loading';
 
 export default function Shooters() {
     const [players, setPlayers] = useState([]);
     const [search, setSearch] = useState("");
+    const [isActive, setIsActive] = useState(false);
 
     const fetchPlayers = async (name) => {
         try {
@@ -28,21 +32,22 @@ export default function Shooters() {
 
     const handleSearchChange = (event) => {
         setSearch(event.target.value);
+        setIsActive(event.target.value.trim() !== "");
     };
 
-    // TODO améliorer "no player found"
     const renderPlayers = () => {
-        if (!players.length) {
-            return <div>No player found</div>;
-        }
         return players.map((player) => (
-            <Link to={`/player/${player.id}`}
-                  key={player.id}
-            >
-                <div key={player.id}>
-                    {player.first_name} {player.last_name}
-                </div>
-            </Link>
+            <>
+                <Link
+                    to={`/player/${player.id}`}
+                    key={player.id}
+                    className="player"
+                >
+                    <div key={player.id}>
+                        {player.first_name} {player.last_name}
+                    </div>
+                </Link>
+            </>
         ));
     }
 
@@ -54,16 +59,31 @@ export default function Shooters() {
 
     return (
         <>
-            <div>
-                <input type="text"
-                       placeholder="Search a player by name"
-                       value={search}
-                       onChange={handleSearchChange}
+            <div className={`search ${isActive ? "active" : ""}`}>
+                <Title/>
+                <input
+                    type="text"
+                    placeholder="Player's name..."
+                    value={search}
+                    onChange={handleSearchChange}
                 />
             </div>
-            <div>
-                {renderPlayers()}
+
+            <div className="render-players">
+                {players ?
+                    (renderPlayers()) :
+                    (<div>
+                        <ReactLoading
+                            type="spin"
+                            color="#fafafa"
+                            height={50}
+                            width={50}
+                        />
+                    </div>)
+                }
             </div>
+
+            <Footer/>
         </>
     )
 }

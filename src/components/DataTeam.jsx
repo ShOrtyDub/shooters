@@ -1,13 +1,13 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import ReactLoading from "react-loading";
 
 export default function DataTeam({teamData}) {
     const [teamPlayers, setTeamPlayers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [cursor, setCursor] = useState(null);
 
-// TODO pas de possibilité de faire un bouton previous, les données meta ne le permette pas à ce jour.
     const fetchPlayersTeam = async (cursor) => {
         setLoading(true);
         try {
@@ -16,7 +16,6 @@ export default function DataTeam({teamData}) {
             if (teamData) {
                 url += `?team_ids[]=${teamData.id}`;
                 if (cursor) {
-                    console.log('cursor du fetch : ' + cursor);
                     url += `&cursor=${cursor}`;
                 }
             }
@@ -34,7 +33,6 @@ export default function DataTeam({teamData}) {
             const response = await axios(url, options);
             setTeamPlayers(response.data.data);
             setCursor(response.data.meta.next_cursor);
-            console.log(response.data);
         } catch (error) {
             console.error('Error fetching players:', error);
         } finally {
@@ -51,11 +49,17 @@ export default function DataTeam({teamData}) {
             return <div>Searching...</div>
         }
         return teamPlayers.map(player => (
-            <Link to={`/player/${player.id}`} key={player.id}>
-                <div key={player.id}>
-                    <p>{player.last_name} {player.team.name}</p>
-                </div>
-            </Link>
+            <>
+                <Link
+                    to={`/player/${player.id}`}
+                    key={player.id}
+                    className="player"
+                >
+                    <div key={player.id}>
+                        <p>{player.first_name} {player.last_name}</p>
+                    </div>
+                </Link>
+            </>
         ));
     }
 
@@ -65,21 +69,36 @@ export default function DataTeam({teamData}) {
 
     return (
         <>
-            <div>
-                <p>{teamData.full_name}</p>
-                <p>city : {teamData.city}</p>
-                <p>abbreviation : {teamData.abbreviation}</p>
-                <p>conference : {teamData.conference}</p>
-                <p>division : {teamData.division}</p>
+            <div className="team-card">
+                <div>
+                    <img
+                        src={`/public/img/teams/${teamData.id}.png`}
+                        alt={teamData.full_name}
+                        width={150}
+                    />
+                </div>
+                <h1>{teamData.full_name}</h1>
+                <p>city : <span>{teamData.city}</span></p>
+                <p>abbreviation : <span>{teamData.abbreviation}</span></p>
+                <p>conference : <span>{teamData.conference}</span></p>
+                <p>division : <span>{teamData.division}</span></p>
             </div>
 
-            <div>
-                Players of {teamData.full_name} team
-                {loading ? <div>Loading</div> : renderAllPlayers()}
-            </div>
+            {loading ?
+                (<div className="spin-loading">
+                    <ReactLoading
+                        type="spin"
+                        color="#fafafa"
+                        height={50}
+                        width={50}/>
+                </div>) :
+                (<div className="render-players">
+                    {renderAllPlayers()}
+                </div>)
+            }
 
-            <div>
-                <button onClick={handleNextPage}>Next</button>
+            <div className="center-link">
+                <button onClick={handleNextPage} className="link-button">Next</button>
             </div>
         </>
     )

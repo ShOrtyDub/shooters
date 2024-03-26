@@ -2,6 +2,8 @@ import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import DataTeam from "./DataTeam.jsx";
+import ReactLoading from "react-loading";
+import Footer from "./Footer.jsx";
 
 export default function Team() {
     const {id} = useParams();
@@ -15,18 +17,18 @@ export default function Team() {
                     'Authorization': '8b94bf84-fe70-4619-8d50-e307653da5fc'
                 },
             };
+
             const response = await axios(options);
             setTeamData(response.data.data);
-            // console.log(response.data.data);
         } catch (error) {
             console.error('Error fetching team data:', error);
         }
     };
 
     const renderTeam = () => {
-        return (
-                <DataTeam teamData={teamData}/>
-        )
+        return <>
+            <DataTeam teamData={teamData}/>
+        </>
     }
 
     useEffect(() => {
@@ -35,13 +37,23 @@ export default function Team() {
 
     return (
         <>
-                {teamData ? (
-                    renderTeam()
-                ) : (
-                    <p>searching...</p>
-                )}
+                {teamData ?
+                    (renderTeam()) :
+                    (<div className="spin-loading">
+                        <ReactLoading
+                            type="spin"
+                            color="#fafafa"
+                            height={50}
+                            width={50}
+                        />
+                    </div>)
+                }
 
-                <Link to="/">Home</Link>
+            <div className="center-link">
+                <Link to="/" className="link-button">Home</Link>
+            </div>
+
+            <Footer/>
         </>
     )
 }

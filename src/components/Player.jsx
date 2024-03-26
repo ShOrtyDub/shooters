@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import DataPlayer from "./DataPlayer.jsx";
+import ReactLoading from "react-loading";
+import Footer from "./Footer.jsx";
 
 export default function Player() {
     const {id} = useParams();
@@ -16,34 +18,47 @@ export default function Player() {
                     'Authorization': '8b94bf84-fe70-4619-8d50-e307653da5fc'
                 },
             };
+
             const response = await axios(options);
             setPlayerData(response.data.data);
-            console.log(response.data);
         } catch (error) {
             console.error('Error fetching player data:', error);
         }
     };
 
     const renderPlayer = () => {
-        return (
+        return <>
             <DataPlayer playerData={playerData}/>
-        )
+        </>
     }
 
     useEffect(() => {
         fetchPlayerData()
     }, []);
 
-    // TODO afficher une roue de chargement.
     return (
         <>
-            {playerData ? (
-                renderPlayer()
-            ) : (
-                <p>searching...</p>
-            )}
+            <div className="search">
+                {playerData ?
+                    (renderPlayer()) :
+                    (<div>
+                        <ReactLoading
+                            type="spin"
+                            color="#fafafa"
+                            height={50}
+                            width={50}
+                        />
+                    </div>)
+                }
+            </div>
 
-            <Link to="/">Home</Link>
+            <div className="center-link">
+                <Link to="/" className="link-button">
+                    Home
+                </Link>
+            </div>
+
+            <Footer/>
         </>
     )
 }
