@@ -6,6 +6,10 @@ import Footer from "./Footer.jsx";
 import ReactLoading from 'react-loading';
 import {API_KEY} from "/config.js";
 
+/**
+ * Ce composant est la vue principal de l'application, il permet de lancer une recherche de joueur en entrant son nom dans un input.
+ * @returns {JSX.Element}
+ */
 export default function Shooters() {
     const [players, setPlayers] = useState([]);
     const [search, setSearch] = useState("");
@@ -39,14 +43,8 @@ export default function Shooters() {
     const renderPlayers = () => {
         return players.map((player) => (
             <>
-                <Link
-                    to={`/shooters/player/${player.id}`}
-                    key={player.id}
-                    className="player"
-                >
-                    <div key={player.id}>
-                        {player.first_name} {player.last_name}
-                    </div>
+                <Link to={`/shooters/player/${player.id}`} key={player.id} className="player">
+                    <div key={player.id}>{player.first_name} {player.last_name}</div>
                 </Link>
             </>
         ));
@@ -63,12 +61,7 @@ export default function Shooters() {
             <div className={`search ${isActive ? "active" : ""}`}>
                 <Title/>
 
-                <input
-                    type="text"
-                    placeholder="Player's name..."
-                    value={search}
-                    onChange={handleSearchChange}
-                />
+                <input type="text" placeholder="Player's name..." value={search} onChange={handleSearchChange}/>
             </div>
 
             <div className="render-players">
@@ -76,12 +69,7 @@ export default function Shooters() {
                     (renderPlayers())
                     :
                     (<div>
-                        <ReactLoading
-                            type="spin"
-                            color="#fafafa"
-                            height={50}
-                            width={50}
-                        />
+                        <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
                     </div>)
                 }
             </div>

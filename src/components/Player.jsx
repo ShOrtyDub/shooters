@@ -6,7 +6,11 @@ import ReactLoading from "react-loading";
 import Footer from "./Footer.jsx";
 import {API_KEY} from "/config.js";
 
-
+/**
+ * Le composant Player affiche les informations d'un joueur.
+ * Il fait appel au composant DataPlayer.
+ * @returns {JSX.Element}
+ */
 export default function Player() {
     const {id} = useParams();
     const [playerData, setPlayerData] = useState()
@@ -45,20 +49,13 @@ export default function Player() {
                     (renderPlayer())
                     :
                     (<div>
-                        <ReactLoading
-                            type="spin"
-                            color="#fafafa"
-                            height={50}
-                            width={50}
-                        />
+                        <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
                     </div>)
                 }
             </div>
 
             <div className="center-link">
-                <Link to="/shooters" className="link-button">
-                    Home
-                </Link>
+                <Link to="/shooters" className="link-button">Home</Link>
             </div>
 
             <Footer/>

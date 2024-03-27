@@ -6,7 +6,11 @@ import ReactLoading from "react-loading";
 import Footer from "./Footer.jsx";
 import {API_KEY} from "/config.js";
 
-
+/**
+ * Le composant Team affiche les informations sur une équipe et tous ses joueurs.
+ * Il fait appel au composant DataTeam.
+ * @returns {JSX.Element}
+ */
 export default function Team() {
     const {id} = useParams();
     const [teamData, setTeamData] = useState()
@@ -43,12 +47,7 @@ export default function Team() {
                 (renderTeam())
                 :
                 (<div className="spin-loading">
-                    <ReactLoading
-                        type="spin"
-                        color="#fafafa"
-                        height={50}
-                        width={50}
-                    />
+                    <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
                 </div>)
             }
 

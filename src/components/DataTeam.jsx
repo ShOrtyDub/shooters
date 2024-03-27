@@ -4,7 +4,12 @@ import {Link} from "react-router-dom";
 import ReactLoading from "react-loading";
 import {API_KEY} from "/config.js";
 
-
+/**
+ * Le composant DataTeam affiche les informations d'une équipe et tous ses joueurs.
+ * Il utilise le props teamData.
+ * @param teamData
+ * @returns {JSX.Element}
+ */
 export default function DataTeam({teamData}) {
     const [teamPlayers, setTeamPlayers] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -49,14 +54,8 @@ export default function DataTeam({teamData}) {
     const renderAllPlayers = () => {
         return teamPlayers.map(player => (
             <>
-                <Link
-                    to={`/shooters/player/${player.id}`}
-                    key={player.id}
-                    className="player"
-                >
-                    <div key={player.id}>
-                        <p>{player.first_name} {player.last_name}</p>
-                    </div>
+                <Link to={`/shooters/player/${player.id}`} key={player.id} className="player">
+                    <div key={player.id}><p>{player.first_name} {player.last_name}</p></div>
                 </Link>
             </>
         ));
@@ -70,11 +69,7 @@ export default function DataTeam({teamData}) {
         <>
             <div className="team-card">
                 <div>
-                    <img
-                        src={`/shooters/img/teams/${teamData.id}.png`}
-                        alt={teamData.full_name}
-                        width={150}
-                    />
+                    <img src={`/shooters/img/teams/${teamData.id}.png`} alt={teamData.full_name} width={150}/>
                 </div>
                 <h1>{teamData.full_name}</h1>
                 <p>City : <span>{teamData.city ? teamData.city : "N/A"}</span></p>
@@ -85,11 +80,7 @@ export default function DataTeam({teamData}) {
 
             {loading ?
                 (<div className="spin-loading">
-                    <ReactLoading
-                        type="spin"
-                        color="#fafafa"
-                        height={50}
-                        width={50}/>
+                    <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
                 </div>)
                 :
                 (<div className="render-players">

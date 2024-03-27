@@ -1,3 +1,8 @@
+/**
+ * Le composant Footer correspond au footer de l'application.
+ * Il apparait à chaque vue.
+ * @returns {JSX.Element}
+ */
 export default function Footer(){
     return <>
         <div className="footer">

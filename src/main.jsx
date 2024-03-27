@@ -6,6 +6,10 @@ import Shooters from "./components/Shooters.jsx";
 import Player from "./components/Player.jsx";
 import Team from "./components/Team.jsx";
 
+/**
+ * Ce composant crée une configuration de routeur pour les différentes pages de l'application "Shooters".
+ * @type {Router}
+ */
 const router = createBrowserRouter([
     {
         path: "/shooters",

@@ -1,5 +1,11 @@
 import {Link} from "react-router-dom";
 
+/**
+ * Le composant DataPlayer affiche les informations d'un joueur.
+ * Il utilise le props playerData.
+ * @param playerData
+ * @returns {JSX.Element}
+ */
 export default function DataPlayer({playerData}) {
     return (<>
             <div className="player-card">
@@ -15,11 +21,7 @@ export default function DataPlayer({playerData}) {
                 <p>Draft number : <span>{playerData.draft_number ? playerData.draft_number : "N/A"}</span></p>
                 <div className="center-link">
                     <Link to={`/shooters/team/${playerData.team.id}`}>
-                        <img
-                            src={`/shooters/img/teams/${playerData.team.id}.png`}
-                            alt={playerData.team.full_name}
-                            width={150}
-                        />
+                        <img src={`/shooters/img/teams/${playerData.team.id}.png`} alt={playerData.team.full_name} width={150}/>
                     </Link>
                 </div>
             </div>
