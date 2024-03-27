@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Title from "./Title.jsx";
 import Footer from "./Footer.jsx";
 import ReactLoading from 'react-loading';
+import {API_KEY} from "/config.js";
 
 export default function Shooters() {
     const [players, setPlayers] = useState([]);
@@ -16,7 +17,7 @@ export default function Shooters() {
                 method: 'GET',
                 url: 'https://api.balldontlie.io/v1/players',
                 headers: {
-                    'Authorization': '8b94bf84-fe70-4619-8d50-e307653da5fc'
+                    'Authorization': API_KEY
                 },
                 params: {
                     search: name,

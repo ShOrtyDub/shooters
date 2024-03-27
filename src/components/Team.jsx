@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import DataTeam from "./DataTeam.jsx";
 import ReactLoading from "react-loading";
 import Footer from "./Footer.jsx";
+import {API_KEY} from "/config.js";
+
 
 export default function Team() {
     const {id} = useParams();
@@ -14,7 +16,7 @@ export default function Team() {
                 method: 'GET',
                 url: `https://api.balldontlie.io/v1/teams/${id}`,
                 headers: {
-                    'Authorization': '8b94bf84-fe70-4619-8d50-e307653da5fc'
+                    'Authorization': API_KEY
                 },
             };
 

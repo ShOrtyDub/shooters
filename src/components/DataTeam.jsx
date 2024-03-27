@@ -2,6 +2,8 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import ReactLoading from "react-loading";
+import {API_KEY} from "/config.js";
+
 
 export default function DataTeam({teamData}) {
     const [teamPlayers, setTeamPlayers] = useState([]);
@@ -23,7 +25,7 @@ export default function DataTeam({teamData}) {
             const options = {
                 method: 'GET',
                 headers: {
-                    'Authorization': '8b94bf84-fe70-4619-8d50-e307653da5fc'
+                    'Authorization': API_KEY
                 },
                 params: {
                     per_page: 100,
