@@ -69,7 +69,7 @@ export default function DataTeam({teamData}) {
             <div className="team-card">
                 <div>
                     <img
-                        src={`/public/img/teams/${teamData.id}.png`}
+                        src={`/shooters/img/teams/${teamData.id}.png`}
                         alt={teamData.full_name}
                         width={150}
                     />

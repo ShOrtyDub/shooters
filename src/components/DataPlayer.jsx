@@ -16,7 +16,7 @@ export default function DataPlayer({playerData}) {
                 <div className="center-link">
                     <Link to={`/team/${playerData.team.id}`}>
                         <img
-                            src={`/public/img/teams/${playerData.team.id}.png`}
+                            src={`/shooters/img/teams/${playerData.team.id}.png`}
                             alt={playerData.team.full_name}
                             width={150}
                         />
