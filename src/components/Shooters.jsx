@@ -39,7 +39,7 @@ export default function Shooters() {
         return players.map((player) => (
             <>
                 <Link
-                    to={`/player/${player.id}`}
+                    to={`/shooters/player/${player.id}`}
                     key={player.id}
                     className="player"
                 >

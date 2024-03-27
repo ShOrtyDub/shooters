@@ -48,7 +48,7 @@ export default function DataTeam({teamData}) {
         return teamPlayers.map(player => (
             <>
                 <Link
-                    to={`/player/${player.id}`}
+                    to={`/shooters/player/${player.id}`}
                     key={player.id}
                     className="player"
                 >
