@@ -80,17 +80,20 @@ export default function DataTeam({teamData}) {
                 </div>
             </div>
 
-            <div className="box">
-                {loading ?
-                    (<div className="spin-loading">
+
+            {loading ?
+                (<div className="box">
+                    <div className="spin-loading">
                         <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
-                    </div>)
-                    :
-                    (<div className="render-players">
+                    </div>
+                </div>)
+                :
+                (<div className="box">
+                    <div className="render-players">
                         {renderAllPlayers()}
-                    </div>)
-                }
-            </div>
+                    </div>
+                </div>)
+            }
 
             <div className="center-link">
                 <button onClick={handleNextPage} className="link-button">Next</button>
