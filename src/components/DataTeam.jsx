@@ -95,7 +95,7 @@ export default function DataTeam({teamData}) {
                 </div>)
             }
 
-            <div className="center-link">
+            <div className="center-button">
                 <button onClick={handleNextPage} className="link-button">Next</button>
             </div>
         </>

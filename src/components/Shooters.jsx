@@ -64,14 +64,16 @@ export default function Shooters() {
                 <input type="text" placeholder="Player's name..." value={search} onChange={handleSearchChange}/>
             </div>
 
-            <div className="render-players">
-                {players ?
-                    (renderPlayers())
-                    :
-                    (<div>
-                        <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
-                    </div>)
-                }
+            <div className="box-player">
+                <div className="render-players">
+                    {players ?
+                        (renderPlayers())
+                        :
+                        (<div>
+                            <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
+                        </div>)
+                    }
+                </div>
             </div>
 
             <Footer/>

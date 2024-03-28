@@ -44,7 +44,7 @@ export default function Player() {
 
     return (
         <>
-            <div className="search">
+            <div className="box-player">
                 {playerData ?
                     (renderPlayer())
                     :
@@ -55,7 +55,7 @@ export default function Player() {
             </div>
 
             <div className="center-link">
-                <Link to="/shooters" className="link-button">Home</Link>
+                <Link to="/shooters" className="link-button">Search</Link>
             </div>
 
             <Footer/>
