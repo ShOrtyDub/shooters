@@ -58,7 +58,6 @@ a, .link-button {
 /*------------------------------------------
 Searchbar
 ------------------------------------------*/
-
 input {
     border: none;
     width: 32vh;
@@ -82,6 +81,7 @@ input {
     height: 30vh;
 }
 
+
 /*------------------------------------------
 Spinning loading
 ------------------------------------------*/
@@ -91,10 +91,10 @@ Spinning loading
     margin: 3vh 0;
 }
 
+
 /*------------------------------------------
 Title
 ------------------------------------------*/
-
 .title {
     margin-bottom: 2vh;
 }
@@ -103,7 +103,6 @@ Title
 /*------------------------------------------
 Render players
 ------------------------------------------*/
-
 .render-players {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -123,7 +122,7 @@ Render players
     transition: all 1.5s ease;
 }
 
-.player:hover{
+.player:hover {
     background-color: #eed7b3;
 }
 
@@ -136,14 +135,17 @@ Render players
 /*------------------------------------------
 Player
 ------------------------------------------*/
-
 .player-card, .team-card {
-    width: 25vw;
     height: fit-content;
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+}
+
+.player-card {
+    min-width: 25vw;
+    padding: 0 20px;
 }
 
 .player-card > h1, .team-card > h1 {
@@ -153,7 +155,7 @@ Player
     font-style: normal;
 }
 
-.player-card > p, .team-card > p {
+.player-card > p {
     margin-left: 5vw;
 }
 
@@ -169,8 +171,13 @@ span {
 Team
 ------------------------------------------*/
 .team-card {
-    padding: 5px 0;
+    min-width: 25vw;
+    padding: 5px 12px;
     margin: 3vh auto;
+}
+
+.team-card > p{
+text-align: center;
 }
 
 .team-card > div {
@@ -178,10 +185,15 @@ Team
     padding: 2vh 0;
 }
 
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+
 /*------------------------------------------
 Footer
 ------------------------------------------*/
-
 .footer {
     color: white;
     text-align: center;

@@ -67,26 +67,30 @@ export default function DataTeam({teamData}) {
 
     return (
         <>
-            <div className="team-card">
-                <div>
-                    <img src={`/shooters/img/teams/${teamData.id}.png`} alt={teamData.full_name} width={150}/>
+            <div className="box">
+                <div className="team-card">
+                    <div>
+                        <img src={`/shooters/img/teams/${teamData.id}.png`} alt={teamData.full_name} width={150}/>
+                    </div>
+                    <h1>{teamData.full_name}</h1>
+                    <p>City : <span>{teamData.city ? teamData.city : "N/A"}</span></p>
+                    <p>Abbreviation : <span>{teamData.abbreviation ? teamData.abbreviation : "N/A"}</span></p>
+                    <p>Conference : <span>{teamData.conference ? teamData.conference : "N/A"}</span></p>
+                    <p>Division : <span>{teamData.division ? teamData.division : "N/A"}</span></p>
                 </div>
-                <h1>{teamData.full_name}</h1>
-                <p>City : <span>{teamData.city ? teamData.city : "N/A"}</span></p>
-                <p>Abbreviation : <span>{teamData.abbreviation ? teamData.abbreviation : "N/A"}</span></p>
-                <p>Conference : <span>{teamData.conference ? teamData.conference : "N/A"}</span></p>
-                <p>Division : <span>{teamData.division ? teamData.division : "N/A"}</span></p>
             </div>
 
-            {loading ?
-                (<div className="spin-loading">
-                    <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
-                </div>)
-                :
-                (<div className="render-players">
-                    {renderAllPlayers()}
-                </div>)
-            }
+            <div className="box">
+                {loading ?
+                    (<div className="spin-loading">
+                        <ReactLoading type="spin" color="#fafafa" height={50} width={50}/>
+                    </div>)
+                    :
+                    (<div className="render-players">
+                        {renderAllPlayers()}
+                    </div>)
+                }
+            </div>
 
             <div className="center-link">
                 <button onClick={handleNextPage} className="link-button">Next</button>
