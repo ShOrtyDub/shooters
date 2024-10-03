@@ -20,8 +20,8 @@ export default function DataPlayer({playerData}) {
                 <p>Draft round : <span>{playerData.draft_round ? playerData.draft_round : "N/A"}</span></p>
                 <p>Draft number : <span>{playerData.draft_number ? playerData.draft_number : "N/A"}</span></p>
                 <div className="center-link">
-                    <Link to={`/shooters/team/${playerData.team.id}`}>
-                        <img src={`/shooters/img/teams/${playerData.team.id}.png`} alt={playerData.team.full_name} width={150}/>
+                    <Link to={`/team/${playerData.team.id}`}>
+                        <img src={`/img/teams/${playerData.team.id}.png`} alt={playerData.team.full_name} width={150}/>
                     </Link>
                 </div>
             </div>

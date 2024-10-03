@@ -55,7 +55,7 @@ export default function Player() {
             </div>
 
             <div className="center-link">
-                <Link to="/shooters" className="link-button">Search</Link>
+                <Link to="/" className="link-button">Search</Link>
             </div>
 
             <Footer/>

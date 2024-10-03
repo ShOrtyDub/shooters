@@ -52,7 +52,7 @@ export default function Team() {
             }
 
             <div className="center-button">
-                <Link to="/shooters" className="link-button">Search</Link>
+                <Link to="/" className="link-button">Search</Link>
             </div>
 
             <Footer/>

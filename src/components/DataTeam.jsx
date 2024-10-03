@@ -54,7 +54,7 @@ export default function DataTeam({teamData}) {
     const renderAllPlayers = () => {
         return teamPlayers.map(player => (
             <>
-                <Link to={`/shooters/player/${player.id}`} key={player.id} className="player">
+                <Link to={`/player/${player.id}`} key={player.id} className="player">
                     <div key={player.id}><p>{player.first_name} {player.last_name}</p></div>
                 </Link>
             </>
@@ -70,7 +70,7 @@ export default function DataTeam({teamData}) {
             <div className="box">
                 <div className="team-card">
                     <div>
-                        <img src={`/shooters/img/teams/${teamData.id}.png`} alt={teamData.full_name} width={150}/>
+                        <img src={`/img/teams/${teamData.id}.png`} alt={teamData.full_name} width={150}/>
                     </div>
                     <h1>{teamData.full_name}</h1>
                     <p>City : <span>{teamData.city ? teamData.city : "N/A"}</span></p>

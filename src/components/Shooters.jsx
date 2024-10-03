@@ -43,7 +43,7 @@ export default function Shooters() {
     const renderPlayers = () => {
         return players.map((player) => (
             <>
-                <Link to={`/shooters/player/${player.id}`} key={player.id} className="player">
+                <Link to={`/player/${player.id}`} key={player.id} className="player">
                     <div key={player.id}>{player.first_name} {player.last_name}</div>
                 </Link>
             </>
