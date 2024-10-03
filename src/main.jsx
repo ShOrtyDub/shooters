@@ -12,15 +12,15 @@ import Team from "./components/Team.jsx";
  */
 const router = createBrowserRouter([
     {
-        path: "/shooters",
+        path: "/",
         element: <Shooters/>
     },
     {
-        path: "/shooters/player/:id",
+        path: "/player/:id",
         element: <Player/>
     },
     {
-        path: "/shooters/team/:id",
+        path: "/team/:id",
         element: <Team/>
     },
 ]);
